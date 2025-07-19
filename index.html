@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET UG Prep Master Tracker Bundle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: block;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .description {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #4ecdc4;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .tracker-details {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .tracker-item {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .tracker-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .tracker-specs {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .formats-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .format-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .format-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .format-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .format-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .subjects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .subject-tag {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+        }
+
+        .subject-tag:hover {
+            transform: translateY(-3px);
+        }
+
+        .cta-section {
+            background: #2c3e50;
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+        }
+
+        .premium-benefits {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 40px 0;
+        }
+
+        .premium-benefits .section-title {
+            color: white;
+        }
+
+        .premium-benefits .section-title::after {
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+        }
+
+        .premium-benefits .description {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .benefit-icon {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .benefit-description {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .benefit-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+
+        .value-proposition {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .value-proposition h3 {
+            color: white !important;
+        }
+
+        .value-proposition p {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .cta-column {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .pricing-highlight {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .price-tag {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .currency {
+            font-size: 2em;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .price {
+            font-size: 4em;
+            font-weight: 900;
+            color: #4ecdc4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .only {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-left: 10px;
+            opacity: 0.9;
+        }
+
+        .price-description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .value-comparison {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .strike-price {
+            font-size: 1.1em;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .discount {
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1em;
+            animation: pulse 2s infinite;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="badge">🎯 Complete NEET Preparation Solution</div>
+            <h1 class="hero-title">NEET UG Prep Master Tracker Bundle</h1>
+            <p class="hero-subtitle">Transform Your NEET Preparation with Scientific Progress Tracking</p>
+        </div>
+
+        <div class="main-content">
+            <h2 class="section-title">🚀 Your Path to NEET Success</h2>
+            <p class="description">
+                Stop guessing your preparation progress! Our comprehensive tracking system helps you monitor every aspect of your NEET UG preparation with <span class="highlight">precision and clarity</span>. Stay organized, motivated, and ahead of the competition.
+            </p>
+
+            <div class="subjects-list">
+                <div class="subject-tag">🔬 Physics</div>
+                <div class="subject-tag">⚗️ Chemistry</div>
+                <div class="subject-tag">🌱 Botany</div>
+                <div class="subject-tag">🧬 Zoology</div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3 class="feature-title">Dynamic Progress Calculator</h3>
+                    <p class="feature-description">
+                        Automatically calculates your syllabus completion percentage across all subjects. Real-time updates keep you informed about your preparation status instantly.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📝</span>
+                    <h3 class="feature-title">Daily Progress Logger</h3>
+                    <p class="feature-description">
+                        Pre-designed templates for daily study tracking. Record your activities, monitor consistency, and build strong study habits effortlessly.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📈</span>
+                    <h3 class="feature-title">Test Score Tracker</h3>
+                    <p class="feature-description">
+                        Comprehensive test performance analysis. Track your scores, identify improvement patterns, and focus on weak areas strategically.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h3 class="feature-title">Revision Scheduler</h3>
+                    <p class="feature-description">
+                        Built-in revision tracking with multiple cycles. Never forget to revise completed topics and maintain long-term retention.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tracker-details">
+                <h3 class="section-title">📋 What's Inside the Bundle</h3>
+                
+                <div class="tracker-item">
+                    <h4 class="tracker-name">1. Dynamic Syllabus Tracker (Excel)</h4>
+                    <p class="tracker-specs">5 Interactive Sheets | Auto-Calculating Progress | All 4 Subjects</p>
+                    <p>Complete chapter-wise tracking with columns for notes completion, DPP completion, assignments, tests, and three revision cycles. The dynamic progress sheet automatically calculates your completion percentage.</p>
+                </div>
+
+                <div class="tracker-item">
+                    <h4 class="tracker-name">2. Daily Progress Record (Excel)</h4>
+                    <p class="tracker-specs">Ready-to-Use Templates | Daily Study Log | Habit Building</p>
+                    <p>Pre-formatted templates for daily study recording. Simply enter what you've completed each day and build a consistent study routine.</p>
+                </div>
+
+                <div class="tracker-item">
+                    <h4 class="tracker-name">3. Test Score Tracker (Excel)</h4>
+                    <p class="tracker-specs">Performance Analytics | Score Trends | Progress Monitoring</p>
+                    <p>Detailed test performance tracking with score analysis, trend identification, and improvement suggestions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="formats-section">
+            <h2 class="section-title" style="color: white;">🎁 Available in 3 Formats</h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Choose your preferred format or get all three included!</p>
+            
+            <div class="formats-grid">
+                <div class="format-card">
+                    <div class="format-icon">💻</div>
+                    <h3 class="format-name">Excel Version</h3>
+                    <p>Dynamic calculations, advanced formulas, perfect for laptop users with automatic progress updates.</p>
+                </div>
+
+                <div class="format-card">
+                    <div class="format-icon">📱</div>
+                    <h3 class="format-name">Notion Template</h3>
+                    <p>Modern digital interface, mobile-friendly, easy customization, and cloud synchronization.</p>
+                </div>
+
+                <div class="format-card">
+                    <div class="format-icon">📄</div>
+                    <h3 class="format-name">PDF Printables</h3>
+                    <p>Offline convenience, no laptop needed, print and track with pen, perfect for traditional study methods.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="premium-benefits">
+            <h2 class="section-title">🌟 Exclusive Premium Benefits</h2>
+            <p class="description">
+                When you purchase the NEET UG Prep Master Tracker Bundle, you don't just get tracking tools - you become part of our <span class="highlight">Premium Community</span> with exclusive access to ongoing support and resources!
+            </p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">📧</span>
+                    <h3 class="benefit-title">Weekly Premium Email Updates</h3>
+                    <p class="benefit-description">
+                        Get curated weekly emails with exam updates, new preparation strategies, important study materials, resource recommendations, and expert tips - saving you hours of research time!
+                    </p>
+                    <ul class="benefit-list">
+                        <li>Latest NEET exam notifications & changes</li>
+                        <li>Proven preparation strategies from toppers</li>
+                        <li>Best study material recommendations</li>
+                        <li>Time-saving tips and shortcuts</li>
+                        <li>Subject-wise weekly focus areas</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">💬</span>
+                    <h3 class="benefit-title">Premium Telegram Channel Access</h3>
+                    <p class="benefit-description">
+                        Join our exclusive Telegram community for real-time discussions, doubt clearing, motivation, and instant updates from our expert team.
+                    </p>
+                    <ul class="benefit-list">
+                        <li>Daily motivation and study tips</li>
+                        <li>Quick doubt resolution</li>
+                        <li>Peer learning with serious aspirants</li>
+                        <li>Expert guidance and Q&A sessions</li>
+                        <li>Important announcements first</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">📱</span>
+                    <h3 class="benefit-title">Premium WhatsApp Channel</h3>
+                    <p class="benefit-description">
+                        Stay connected with our premium WhatsApp broadcast for instant notifications, quick tips, and important updates directly to your phone.
+                    </p>
+                    <ul class="benefit-list">
+                        <li>Instant exam alerts and deadlines</li>
+                        <li>Daily micro-learning content</li>
+                        <li>Last-minute preparation tips</li>
+                        <li>Motivational quotes and success stories</li>
+                        <li>Quick revision reminders</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">📺</span>
+                    <h3 class="benefit-title">Instagram Broadcast Channel</h3>
+                    <p class="benefit-description">
+                        Get exclusive access to our Instagram broadcast channel with premium content, behind-the-scenes preparation tips, and visual learning materials.
+                    </p>
+                    <ul class="benefit-list">
+                        <li>Exclusive video content and tutorials</li>
+                        <li>Visual study guides and infographics</li>
+                        <li>Live session notifications</li>
+                        <li>Premium preparation content</li>
+                        <li>Success celebration updates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-proposition">
+                <h3 style="font-size: 1.8em; text-align: center; color: #2c3e50; margin-bottom: 20px;">
+                    🎯 No More Time Wasted on Searching!
+                </h3>
+                <p style="text-align: center; font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                    We curate and deliver the best preparation resources directly to you. Focus on studying while we handle the research, filtering, and recommendation work for you!
+                </p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Master Your NEET Preparation?</h2>
+            <p style="font-size: 1.3em; margin-bottom: 20px;">
+                Join thousands of successful NEET aspirants who've transformed their preparation with our tracking system and premium community access.
+            </p>
+            <div class="cta-features">
+                <div class="cta-column">
+                    <h4 style="color: #4ecdc4; font-size: 1.2em; margin-bottom: 10px;">📋 What You Get:</h4>
+                    <p style="font-size: 1.1em; opacity: 0.9;">
+                        ✅ All 3 Tracker Formats<br>
+                        ✅ Lifetime Access<br>
+                        ✅ Instant Download<br>
+                        ✅ Email Support
+                    </p>
+                </div>
+                <div class="cta-column">
+                    <h4 style="color: #ff6b6b; font-size: 1.2em; margin-bottom: 10px;">🌟 Premium Benefits:</h4>
+                    <p style="font-size: 1.1em; opacity: 0.9;">
+                        ✅ Weekly Email Updates<br>
+                        ✅ Premium Telegram Access<br>
+                        ✅ WhatsApp Broadcast<br>
+                        ✅ Instagram Channel Access
+                    </p>
+                </div>
+            </div>
+            <div class="pricing-highlight">
+                <div class="price-tag">
+                    <span class="currency">₹</span>
+                    <span class="price">149</span>
+                    <span class="only">only</span>
+                </div>
+                <p class="price-description">Complete Bundle + Premium Community Access</p>
+                <div class="value-comparison">
+                    <span class="strike-price">Worth ₹999+</span>
+                    <span class="discount">85% OFF</span>
+                </div>
+            </div>
+            <a href="#" class="cta-button">Get Your Premium Bundle for ₹149</a>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 20px;">
+                ⏰ Limited Time Offer - Join our premium community today and never miss important NEET updates again!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

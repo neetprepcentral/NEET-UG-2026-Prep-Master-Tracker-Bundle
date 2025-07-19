@@ -470,21 +470,364 @@
             50% { transform: scale(1.05); }
         }
 
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .hero-section {
+                padding: 40px 0;
+                margin-bottom: 25px;
+            }
+
             .hero-title {
-                font-size: 2.5em;
+                font-size: 2.2em;
+                line-height: 1.2;
+                margin-bottom: 15px;
             }
-            
+
+            .hero-subtitle {
+                font-size: 1.1em;
+                margin-bottom: 25px;
+                padding: 0 10px;
+            }
+
+            .badge {
+                font-size: 1em;
+                padding: 10px 20px;
+                margin-bottom: 30px;
+            }
+
             .main-content {
-                padding: 20px;
+                padding: 25px 20px;
+                border-radius: 15px;
+                margin-bottom: 20px;
             }
-            
+
+            .section-title {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+                line-height: 1.3;
+            }
+
+            .description {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 30px;
             }
-            
+
+            .feature-card {
+                padding: 25px 20px;
+                border-radius: 12px;
+            }
+
+            .feature-icon {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .feature-title {
+                font-size: 1.3em;
+                margin-bottom: 12px;
+            }
+
+            .feature-description {
+                font-size: 1em;
+                line-height: 1.6;
+            }
+
+            .subjects-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin: 25px 0;
+            }
+
+            .subject-tag {
+                padding: 12px 10px;
+                font-size: 1em;
+            }
+
+            .tracker-details {
+                padding: 25px 20px;
+                margin: 25px 0;
+                border-radius: 12px;
+            }
+
+            .tracker-item {
+                padding: 20px 18px;
+                margin-bottom: 20px;
+                border-radius: 10px;
+            }
+
+            .tracker-name {
+                font-size: 1.2em;
+                line-height: 1.3;
+                margin-bottom: 8px;
+            }
+
+            .tracker-specs {
+                font-size: 0.95em;
+                margin-bottom: 12px;
+            }
+
+            .formats-section {
+                padding: 35px 20px;
+                margin: 25px 0;
+                border-radius: 15px;
+            }
+
+            .formats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .format-card {
+                padding: 25px 20px;
+                border-radius: 12px;
+            }
+
+            .format-icon {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .format-name {
+                font-size: 1.2em;
+                margin-bottom: 12px;
+            }
+
+            .premium-benefits {
+                padding: 35px 20px;
+                margin: 25px 0;
+                border-radius: 15px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 30px 0;
+            }
+
+            .benefit-card {
+                padding: 25px 20px;
+                border-radius: 12px;
+            }
+
+            .benefit-icon {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .benefit-title {
+                font-size: 1.2em;
+                margin-bottom: 12px;
+            }
+
+            .benefit-description {
+                font-size: 1em;
+                margin-bottom: 15px;
+                line-height: 1.5;
+            }
+
+            .benefit-list li {
+                font-size: 0.95em;
+                margin-bottom: 6px;
+                padding-left: 18px;
+            }
+
+            .value-proposition {
+                padding: 25px 20px;
+                margin-top: 30px;
+                border-radius: 12px;
+            }
+
+            .value-proposition h3 {
+                font-size: 1.4em !important;
+                line-height: 1.3 !important;
+            }
+
+            .value-proposition p {
+                font-size: 1em !important;
+                line-height: 1.5 !important;
+            }
+
+            .cta-section {
+                padding: 35px 20px;
+                margin: 25px 0;
+                border-radius: 15px;
+            }
+
+            .cta-title {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+
+            .cta-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 25px 0;
+                text-align: center;
+            }
+
+            .cta-column {
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .pricing-highlight {
+                margin: 30px 0;
+                padding: 25px 15px;
+                border-radius: 15px;
+            }
+
+            .price-tag {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: baseline;
+                margin-bottom: 12px;
+            }
+
+            .currency {
+                font-size: 1.5em;
+                margin-right: 3px;
+            }
+
+            .price {
+                font-size: 3em;
+            }
+
+            .only {
+                font-size: 1.2em;
+                margin-left: 8px;
+            }
+
+            .price-description {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+            }
+
+            .value-comparison {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .strike-price {
+                font-size: 1em;
+            }
+
+            .discount {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                margin: 25px auto 0;
+                padding: 16px 30px;
+                font-size: 1.1em;
+                text-align: center;
+            }
+
+            /* Disable hover effects on mobile */
+            .feature-card:hover,
+            .format-card:hover,
+            .benefit-card:hover,
+            .subject-tag:hover {
+                transform: none;
+            }
+
+            .cta-button:hover {
+                transform: none;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px;
+            }
+
+            .hero-title {
+                font-size: 1.9em;
+            }
+
+            .hero-subtitle {
+                font-size: 1em;
+                padding: 0 5px;
+            }
+
+            .badge {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+
+            .main-content {
+                padding: 20px 15px;
+            }
+
             .section-title {
-                font-size: 2em;
+                font-size: 1.6em;
+            }
+
+            .description {
+                font-size: 1em;
+                padding: 0 5px;
+            }
+
+            .subjects-list {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .subject-tag {
+                padding: 10px 8px;
+                font-size: 0.95em;
+            }
+
+            .feature-card,
+            .benefit-card,
+            .format-card {
+                padding: 20px 15px;
+            }
+
+            .tracker-details,
+            .formats-section,
+            .premium-benefits,
+            .cta-section {
+                padding: 25px 15px;
+            }
+
+            .tracker-item {
+                padding: 18px 15px;
+            }
+
+            .price {
+                font-size: 2.5em;
+            }
+
+            .currency {
+                font-size: 1.3em;
+            }
+
+            .only {
+                font-size: 1.1em;
+            }
+
+            .cta-button {
+                padding: 14px 25px;
+                font-size: 1em;
             }
         }
     </style>
